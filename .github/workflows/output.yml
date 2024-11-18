@@ -1,0 +1,8 @@
+name: Output Context
+on: [issues, workflow_dispatch]
+jobs:
+    output_context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Output event
+              run: echo "${{ github }}"
