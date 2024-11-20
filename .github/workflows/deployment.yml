@@ -1,5 +1,12 @@
 name: Deploy app
-on: [push, workflow_dispatch]
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
+      - 'main'
+      - 'dev'
+      - 'releases/**'
 jobs:
     lint:
         runs-on: ubuntu-latest
