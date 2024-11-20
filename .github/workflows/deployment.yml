@@ -1,5 +1,13 @@
 name: Deploy app
-on: 
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - 'master'
+      - 'main'
+      - 'dev'
+      - 'releases/**'
   workflow_dispatch:
   push:
     branches:
