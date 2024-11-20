@@ -1,6 +1,7 @@
 import HelpBox from './HelpBox';
 import './HelpArea.css';
 
+//test item
 const HELP_ITEMS = [
   {
     id: 'h1',
