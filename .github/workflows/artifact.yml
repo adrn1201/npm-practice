@@ -41,6 +41,13 @@ jobs:
               run: npm ci
             - name: Test code
               run: npm run test
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: public-files
+                path: |
+                    public
+                    package.json
     deploy:
         needs: [lint, test]
         runs-on: ubuntu-latest
@@ -53,12 +60,11 @@ jobs:
               run: npm ci
             - name: Build code
               run: npm run build
-            - name: Upload artifacts
-              uses: actions/upload-artifact@v4
+            - name: Download artifacts
+              uses: actions/download-artifact@v4
               with:
                 name: public-files
-                path: |
-                    public
-                    package.json
+            - name: List directory
+              run: ls
             - name: Deploy
               run: echo "Deployed"
