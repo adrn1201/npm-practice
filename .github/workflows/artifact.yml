@@ -34,6 +34,17 @@ jobs:
               run: npm ci
             - name: Run Lint
               run: npm run lint
+    print:
+      environment: test
+      env:
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+      runs-on: ubuntu-latest
+      steps:
+        - name: Print Creds
+          run: |
+            echo "${{ env.USERNAME }}"
+            echo "${{ env.PASSWORD }}"
     test:
         needs: lint
         runs-on: ubuntu-latest
