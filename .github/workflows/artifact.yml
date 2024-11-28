@@ -79,6 +79,12 @@ jobs:
         uses: ./.github/workflows/reusable.yml
         with:
           artifact-name: public-files
+    get-deploy-result:
+      needs: deploy
+      runs-on: ubuntu-latest
+      steps:
+        - name: print output
+          run: echo "${{ needs.deploy.outputs }}"
 
 
 
@@ -101,7 +107,7 @@ jobs:
 
 
 
-          
+
         # runs-on: ubuntu-latest
         # steps:
         #     - name: Get Code
