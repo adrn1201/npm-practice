@@ -100,4 +100,4 @@ jobs:
             - name: Output filename
               run: echo "${{ needs.test.outputs.html-file }}"
             - name: Deploy
-              run: echo "Deployed"
+              uses: ./.github/workflows/reusable.yml
