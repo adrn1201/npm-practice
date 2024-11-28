@@ -12,14 +12,14 @@ jobs:
               uses: actions/checkout@v4
             - name: Set-up node
               uses: actions/setup-node@v4
-            - name: Cache
-              id: cache
-              uses: actions/cache@v4
-              with:
-                path: node_modules
-                key: deps-node-module-${{ hashFiles('**/package-lock.json') }}
+            # - name: Cache
+            #   id: cache
+            #   uses: actions/cache@v4
+            #   with:
+            #     path: node_modules
+            #     key: deps-node-module-${{ hashFiles('**/package-lock.json') }}
             - name: Install Dependencies
-              if: steps.cache.outputs.cache-hit == 'false'
+            #   if: steps.cache.outputs.cache-hit == 'false'
               run: npm ci
             - name: Run Test
               id: run-test
