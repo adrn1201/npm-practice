@@ -1,0 +1,15 @@
+name: Test Script
+on: 
+    workflow_dispatch:
+    push:
+jobs:
+    test:
+        uses: ./.github/workflows/reusablev2.yml
+        with:
+            output-value: completed
+    result:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get result
+              run: echo ${{ needs.test.outputs }}
