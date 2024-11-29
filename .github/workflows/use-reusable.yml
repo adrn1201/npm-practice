@@ -4,9 +4,7 @@ on:
     push:
 jobs:
     test:
-        uses: ./.github/workflows/reusablev2.yml
-        with:
-            output-value: failed
+        uses: ./.github/workflows/reusable.yml
     result:
         needs: test
         runs-on: ubuntu-latest
