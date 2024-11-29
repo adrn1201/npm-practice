@@ -5,9 +5,11 @@ on:
 jobs:
     test:
         uses: ./.github/workflows/reusablev2.yml
+        with:
+            output-value: succeeded
     result:
         needs: test
         runs-on: ubuntu-latest
         steps:
             - name: Get result
-              run: echo ${{ needs.test.outputs }}
+              run: echo ${{ needs.test.outputs.test-result }}
