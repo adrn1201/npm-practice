@@ -6,7 +6,7 @@ jobs:
     test:
         uses: ./.github/workflows/reusablev2.yml
         with:
-            output-value: completed
+            output-value: failed
     result:
         needs: test
         runs-on: ubuntu-latest
