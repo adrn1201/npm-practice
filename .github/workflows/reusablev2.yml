@@ -1,23 +1,8 @@
 name: Reusable Test
 on: 
     workflow_call:
-        inputs:
-            output-value:
-                description: Add Test Inputs
-                required: false
-                type: string
-                default: succeeded
-        outputs:
-            test-result: 
-                value: ${{ jobs.okay.outputs.test-result }}
 jobs:
     okay:
-        outputs: 
-            test-result: ${{ steps.test-result.outputs.test-output }}
-        strategy:
-            matrix:
-                operating-system: [ubuntu-latest, windows-latest]
-                node-version: [16, 18, 21]
         runs-on: ubuntu-latest
         steps:
             - name: Get Code
@@ -28,7 +13,4 @@ jobs:
               uses: npm ci
             - name: Run Test
               run: npm run test
-            - name: result
-              id: test-result
-              run: echo "test-output=${{inputs.output-value}}" >> $GITHUB_OUTPUT
               
