@@ -3,13 +3,13 @@ on:
     workflow_dispatch:
     push:
 jobs:
-    test:
+    hello:
         uses: ./.github/workflows/reusablev2.yml
         with:
             output-value: succeeded
-    result:
-        needs: test
+    hi:
+        needs: hello
         runs-on: ubuntu-latest
         steps:
             - name: Get result
-              run: echo ${{ needs.test.outputs.test-result }}
+              run: echo ${{ needs.hello.outputs.test-result }}
